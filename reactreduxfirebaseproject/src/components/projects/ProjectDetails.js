@@ -4,6 +4,7 @@ import {firestoreConnect} from 'react-redux-firebase'
 import {compose} from 'redux' 
 import './projectscss.css'
 import { Redirect } from 'react-router-dom'
+import moment from 'moment'
 
 const ProjectDetails=(props)=> {
     const {project,auth} = props;
@@ -17,7 +18,7 @@ const ProjectDetails=(props)=> {
                     </div>
                     <div className="card-action grey projectmetadatatextcolor lighten-4">
                         <div>Posted by <span className="projectmetadatavaluecolor">{project.authorFirstName} {project.authorLastName}</span></div>
-                        <div>created on  <span className="projectmetadatavaluecolor">2nd September ,2022</span></div>
+                        <div>created  <span className="projectmetadatavaluecolor">{moment(project.created.toDate()).calendar()}</span></div>
                     </div>
                 </div>
             </div>
